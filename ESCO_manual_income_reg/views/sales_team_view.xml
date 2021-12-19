@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<odoo>
+
+    <record id="sales_team_view" model="ir.ui.view">
+        <field name="name">sales.team.view.inherit</field>
+        <field name="model">crm.team</field>
+        <field name='inherit_id' ref="sales_team.crm_team_view_form"/>
+        <field name="arch" type="xml">
+        	<field name='user_id' position='after'>
+        		<field name='analytic_account_id'/>
+        	</field>
+        </field>
+    </record>
+</odoo>

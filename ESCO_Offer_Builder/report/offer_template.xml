@@ -1,0 +1,498 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+    <template id="quotatuion_offer_report">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+               <div class="article o_report_layout_standard"  t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id">
+            <t t-call="ESCO_Offer_Builder.quotation_offer_header"/>
+                <div class="page" style="font-family:Almarai;">
+                <style>
+                    ul.a {
+                        list-style-type: none;
+                    }
+                    ul li{
+                        padding:5px;                        
+                    }
+                    .pointer {
+                    width: 350px;
+                    height: 40px;
+                    position: relative;
+                    background: #008000;
+                    }
+                    .pointer:after {
+                    content: "";
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                    width: 0;
+                    height: 0;
+                    border-left: 20px solid white;
+                    border-top: 20px solid transparent;
+                    border-bottom: 20px solid transparent;
+                    }
+                    .pointer:before {
+                    content: "";
+                    position: absolute;
+                    right: -20px;
+                    bottom: 0;
+                    width: 0;
+                    height: 0;
+                    border-left: 20px solid #008000;
+                    border-top: 20px solid transparent;
+                    border-bottom: 20px solid transparent;
+                    }      
+                </style>
+                <link href="https://fonts.googleapis.com/css2?family=Almarai&amp;display=swap" rel="stylesheet"/> 
+                 <!-- <link href="//db.onlinewebfonts.com/c/02f502e5eefeb353e5f83fc5045348dc?family=GE+SS+Two+Light" rel="stylesheet" type="text/css"/>  -->
+                <!-- <link href="/decisions/static/font/css/task_reports_style.css" rel="stylesheet"/> -->
+                <!-- <link href="https://fonts.googleapis.com/css2?family=Cairo&amp;display=swap" rel="stylesheet"/>  -->
+                  <div class="container-fluid" style="border-left:16px solid #424242; hieght:100%">
+                    <div class="row">
+                       <table class="table">
+                          <thead>
+                            <tr>
+                               <th style="border-top: 1px  solid #fff; border-bottom: 1px  solid #fff;">
+                                 <h1 style="color:#008000; font-style:bold;">نظام الادارة المتكامل</h1>
+                               </th>  
+                               <th style="border-top: 1px  solid #fff; border-bottom: 1px  solid #fff;"></th> 
+                               <th style="border-top: 1px  solid #fff; border-bottom: 1px  solid #fff;">
+                                   <div class="pointer">
+                                        <p class="lead text-center" style="color:#fff;">
+                                            <span t-field="o.qu_date"/>
+                                         </p>
+                                    </div>
+                               </th>  
+                            </tr>
+                          </thead>
+                       </table>
+                    </div>
+                    <div class="row text-center">
+                       <table class="table">
+                            <thead>
+                            <tr>
+                                <th style="border-top: 1px  solid #fff; border-bottom: 1px  solid #fff;">
+                                </th>  
+                                <th style="border-top: 1px  solid #fff; border-bottom: 1px  solid #fff;">
+                                    <h3 style="color:#008000;">العرض الفني والتجاري</h3>
+                                </th> 
+                                <th style="border-top: 1px  solid #fff; border-bottom: 1px  solid #fff;">
+                                </th>  
+                            </tr>
+                            </thead>
+                       </table>
+                    </div>
+
+                    <div class="row" style="margin-top:20px;">
+                        <table class="table">
+                           <thead>
+                              <tr>
+                                 <th style="border-top: 1px  solid #fff; border-bottom: 1px  solid #fff; width:400px; hieght:300px;">
+                                      <img class="img" src="/ESCO_Offer_Builder/static/src/img/main-logo.jpeg" style="width:100%;" />
+                                 </th>
+                              </tr>
+                           </thead>
+                        </table>
+                    </div>
+                    <div class="row text-center" style="margin-top:250px;">
+                       <table class="table">
+                            <thead>
+                            <tr>
+                                <th style="border-top: 1px  solid #fff; border-bottom: 1px  solid #fff;">
+                                </th>  
+                                <th style="border-top: 1px  solid #fff; border-bottom: 1px  solid #fff;">
+                                    <p style="color:#008000;">cto@escoid.com</p>
+                                    <p>شركة الحلول الهندسية</p>
+
+                                </th> 
+                                <th style="border-top: 1px  solid #fff; border-bottom: 1px  solid #fff;">
+                                </th>  
+                            </tr>
+                            </thead>
+                       </table>
+                    </div>
+                  </div>
+                  <!-- Start Second page-->
+                    <div class="row" style="margin-top:50px;">
+                        <h3 style="font-size:24px; color:#3f51b5; margin-right:6px;">المحتويات</h3>
+                    </div>
+                    <div class="row">
+                        <table class="table" style="padding-top:1px; padding-bottom:1px;">
+                            <thead>
+                            <tr>
+                                <th style="border-top: 1px  solid #fff; border-bottom: 1px  solid #fff;"><h4 style="margin-right:10px; font-style:bold;"><span style="margin-left:15px;">1</span>
+                                    افتتاحية ................................................................................................................................. 2</h4></th>
+                            </tr>
+                            <tr>
+                                <th style="border-top: 1px  solid #fff; border-bottom: 1px  solid #fff;"><h4 style="margin-right:10px; font-style:bold;"><span style="margin-left:15px;">2</span>
+                                من نحن .................................................................................................................................. 3</h4></th>
+                            </tr>
+                            <tr>
+                                <th style="border-top: 1px  solid #fff; border-bottom: 1px  solid #fff;"><h4 style="margin-right:10px; font-style:bold;"><span style="margin-left:15px;">3</span>
+                                الانظمة المقترحة ................................................................................................................ 4</h4></th>
+                            </tr>
+                            <tr>
+                                <th style="border-top: 1px  solid #fff; border-bottom: 1px  solid #fff;"><h4 style="margin-right:10px; font-style:bold;"><span style="margin-left:15px;">4</span>
+                                تفاصيل الانظمة .................................................................................................................. 4</h4></th>
+                            </tr>
+                            <tr>
+                                <th style="border-top: 1px  solid #fff; border-bottom: 1px  solid #fff;"><h5 style="margin-right:30px;">
+                                4.1 ادراة البيانات الاساسية ................................................................................................................................ 4
+                                </h5></th>
+                            </tr>
+                            <tr>
+                                <th style="border-top: 1px  solid #fff; border-bottom: 1px  solid #fff;"><h5 style="margin-right:30px;">
+                                4.2 نظام ادارة الافراد .......................................................................................................................................... 4
+                                </h5></th>
+                            </tr>
+                            <tr>
+                                <th style="border-top: 1px  solid #fff; border-bottom: 1px  solid #fff;"><h5 style="margin-right:30px;">
+                                4.3 نظام ادارة الرواتب ......................................................................................................................................... 5
+                                </h5></th>
+                            </tr>
+                            <tr>
+                                <th style="border-top: 1px  solid #fff; border-bottom: 1px  solid #fff;"><h5 style="margin-right:30px;">
+                                4.4 نظام ادارة الحسابات ..................................................................................................................................... 5
+                                </h5></th>
+                            </tr>
+                            <tr>
+                                <th style="border-top: 1px  solid #fff; border-bottom: 1px  solid #fff;"><h5 style="margin-right:30px;">
+                                4.5 نظام ادارة المبيعات ..................................................................................................................................... 6
+                                </h5></th>
+                            </tr>
+                            <tr>
+                                <th style="border-top: 1px  solid #fff; border-bottom: 1px  solid #fff;"><h5 style="margin-right:30px;">
+                                4.6 نظام ادارة المشتريات ................................................................................................................................... 6
+                                </h5></th>
+                            </tr>
+                            <tr>
+                                <th style="border-top: 1px  solid #fff; border-bottom: 1px  solid #fff;"><h5 style="margin-right:30px;">
+                                4.7 نظام ادارة المخازن ........................................................................................................................................ 6
+                                </h5></th>
+                            </tr>
+                                <tr>
+                                <th style="border-top: 1px  solid #fff; border-bottom: 1px  solid #fff;"><h4 style="margin-right:10px; font-style:bold;"><span style="margin-left:15px;">5</span>
+                                    العرض التجاري</h4></th>
+                            </tr>
+                            <tr>
+                                <th style="border-top: 1px  solid #fff; border-bottom: 1px  solid #fff;"><h5 style="margin-right:30px;">
+                                5.1 جدول الاسعار الاساسي .............................................................................................................................. 8
+                                </h5></th>
+                            </tr>
+                            </thead>
+                        </table>
+                    </div>
+                    <!--End Second page-->
+                    <!--Srart therd page-->
+                     <div class="row" style="margin-top:200px;">
+                        <h3 style="color:#008000; font-style:bold;"><span style="margin-left:10px;">1</span>افتتاحية</h3>
+                    </div>
+                    <div class="row" style="border-bottom:2px solid #000;">
+                    </div>
+                    <br/>
+                    <br/>
+                    <div class="row">
+                        <p class="lead" style="padding:5px; line-height: 1.6;">تتشرف شركتنا بتقديم هذا العرض الفني والتجاري والذي من خلاله تتطلع شركتنا للمضي قدما بتجهيزكم باحدث التقنيات الفنية في مجال مكننة المعلومات, وافضل والخدمات المتخصصة بمهارات وخبرات محلية عراقية بالكامل    
+                               والتي تساعد وتسهل الوصول الى الاهداف التي تسعى مؤسستكم الموقرة الوصول اليها وفق استراتيجتكم.</p>
+                    </div>
+                    <div class="row">
+                        <p class="lead" style="padding:5px; line-height: 1.6;">استمرارا وحرصا منا بتجهيز منتج متكامل وعالي الجودة, تلتزم شركتنا شركة الحلول الهندسية بجعل كل مشارييعها كامثلة حية لمستوى
+                                العمل الممتاز والخدمة المتميزة المنفذة في العراق, ان عرضنا المقترح من مصادر وخدمات صمم ليلائم متطلباتكم ورؤيتكم.</p>
+                    </div>
+                    <div class="row">
+                        <p class="lead" style="padding:5px; line-height: 1.6;">نأمل ان ينال عرضنا استحسانكم ويصل الى تلبية متطلباتكم ونؤكد حرصنا واستعدادنا للقاءكم ومناقشة اي تفاصل سواء كانت متعلقة بعرضنا
+                               او لها او لها علاقة بتفاصيل متطلباتكم.</p>
+                    </div>
+                    <div class="row">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                <th style="border-top: 1px  solid #fff; border-bottom: 1px  solid #fff;"></th>
+                                <th style="border-top: 1px  solid #fff; border-bottom: 1px  solid #fff;"><p class="lead text-center" style="padding:5px;">نتقدم بشكرنا لكم لتخصيص وقتكم لدراسة ردنا وبانتظار ردكم, وشكرا</p></th>
+                                <th style="border-top: 1px  solid #fff; border-bottom: 1px  solid #fff;"></th>
+                                </tr>
+                                <tr style="margin-top:-10px:">
+                                <th style="border-top: 1px  solid #fff; border-bottom: 1px  solid #fff;"></th>
+                                <th style="border-top: 1px  solid #fff; border-bottom: 1px  solid #fff;"> <p class="lead text-center" style="padding:5px;">وتقبلو فائق الشكر والتقدير</p></th>
+                                <th style="border-top: 1px  solid #fff; border-bottom: 1px  solid #fff;"></th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <div class="row text-center">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th style="border-top: 1px  solid #fff; border-bottom: 1px  solid #fff; padding:0;">
+                                        <h4 style="color:#fff;">حسام مانع عبيد</h4>
+                                    </th>
+                                    <th style="border-top: 1px  solid #fff; border-bottom: 1px  solid #fff; padding:0;">
+                                        <h4 style="color:#fff;"> مانع عبيد</h4>
+                                    </th>
+                                    <th style="border-top: 1px  solid #fff; border-bottom: 1px  solid #fff; padding:0;"> 
+                                        <h4>حسام مانع عبيد</h4>
+                                        <p>المدير الفني</p>
+                                        <p>شركة الحلول الهندسية</p>
+                                        <p>2018 446 077 469+</p>
+                                    </th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                    <!--End therd page-->
+                    <!--Start forth page-->
+                    <h3 style="color:#008000; font-style:bold; margin-top:200px;">2  من نحن ...</h3>
+                    <div class="row" style="border-bottom:2px solid #000;">
+                    </div>
+                    <div class="row">
+                        <p class="lead" style="padding:5px; line-height: 1.6;">تأسست شركة الحلول الهندسية عام 2005 لتقدم خدماتها في مجالات استشارات تكنلوجيا المعلومات وتطبيقات قواعد البيانات وتطوير الانظمةالادارية
+                               وتصميم وادارة المواقع الالكترونية وتقديم الحلول الامنية والاتصالات والدعم الفني والصيانة.</p>
+                    </div>
+                    <div class="row">
+                        <p class="lead" style="padding:5px; line-height: 1.6;">يتكون فريقنا من مجموعة من المهندسين المحترفين والمؤهلين في مجال تكنلوجيا المعلومات والفنيين ذو المهارة العالية الذين يكرسون خبراتهم 
+                                الطويلة وكفاءتهم ليقدمو لعملائنا افضل الخدمات والحلول واكثرها فعالية من حيث التكلفة والاداء.</p>
+                    </div>
+                    <div class="row">
+                        <p class="lead" style="padding:5px; line-height: 1.6;">تمتد مشروعاتنا لتخدم العديد من المؤسسات والشركات في القطاعين الحكومي والخاص على حد سواء في صناعات متنوعة والاعلام والتجارة 
+                                الغذائية والتجارة العامة والبنى التحتية والخدمات التخصصية والمجال الصحي والطبي والترفيهي ونوفر الحد الاعلى لمرونة لانظير لها وباقل 
+                                التكاليف الممكنة.</p>
+                    </div>
+                    <h3 style="color:#008000; font-style:bold;">رؤيتنا ...</h3>
+                    <div class="row" style="margin-top:4px;">
+                        <p class="lead" style="padding:5px; line-height: 1.6;">ان نصبح الافضل في مجال تقديم الخدمات وتكلوجيا المعلومات على المستوى الوطني ممهدين الطريق للعراق لتنافس وبقوة في السوق العالمي.</p>
+                    </div>
+                    <h3 style="color:#008000; font-style:bold;">مهمتنا ...</h3>
+                    <div class="row" style="margin-top:4px;">
+                        <p class="lead" style="padding:5px; line-height: 1.6;">من خلال الاعتماد على فريقنا ذي المهارة العالية بالاضافة الى دعم شركائنا من المؤسسات الرائدة عالميا . نحن نهمل على تلبية احتياجات 
+                                عملائنا بل ونتجاوز توقهاتهم محافظين على ثقتهم بشركتنا كخيار اول واستشاري موثوق ومجهز ملتزم ومنظم في مجال تقديم الخدمات
+                                وحلول تكنلوجيا المعلومات في العراق وعلى مستوى العالم.</p>
+                    </div>
+                    <!--End forth page-->
+                    <!--Start fifth page-->
+                     <div class="row" style="margin-top:320px;">
+                        <h3 style="color:#008000">3  الانظمة المقترحة</h3>
+                    </div>
+                    <div class="row" style="border-bottom:2px solid #000;">
+                    </div>
+                    <br/>
+                        <ul class="a">
+                            <t t-set="i" t-value="1"/>
+                            <t t-foreach="docs.order_line" t-as="l">
+                                <t t-if="l.product_id">
+                                    <li style="font-size:18px; line-height: 1.6; white-space: nowrap;"><span t-esc="i"/><span style="margin-right:20px;" t-field="l.product_id.name"/></li>
+                                    <t t-set="i" t-value="i+1"/>
+                                </t>
+                            </t>
+                        </ul>
+                        <div class="row">
+                            <h3 style="color:#008000">4  تفاصيل الانظمة</h3>
+                        </div>
+                        <div class="row" style="border-bottom:2px solid #000;">
+                        </div>
+                        <br/>
+                        <br/>
+                        <div class="row" style="margin-right:30px;">
+                            <h5 style="color:#008000; white-space: nowrap;">4.1 ادارة البيانات الاساسية</h5>
+                        </div>
+                        <div class="row" style="border-bottom:1px solid #008000; margin-right:30px;">
+                        </div>
+                        <div class="row" style="margin-top:5px; margin-right:30px;">
+                            <p class="lead" style="padding:5px; line-height: 1.6;">
+                                يعتمد تخصيص موارد المؤسسة على بيانات مشتركة تسمى Master Data, فالبيانات المشتركة تسمح لأقسام العمل تخزين واسترجاع المعلومات. تمثل البيانات الأساسية حجر الزاوية الذي يرتكز عليها النظام حيث يتم من خلال هذه البيانات إدخال كل التعريفات والكيانات والقواعد الخاصة بالمؤسسة ومن ثم استخدام هذه المدخلات في ادارة مفردات النظام المختلفة.
+                            </p>
+                        </div>
+
+                        <!--Employee Discription Section-->
+                        <div class="row" style="margin-right:30px;">
+                            <t t-foreach="docs.order_line" t-as="l">
+                                <t t-if="l.product_id and l.product_id.tag == 'emp'">
+                                    <h5 style="color:#008000; white-space: nowrap;">4.2 <span t-field="l.product_id.name"/></h5>
+                                     <!-- <h5 style="border-bottom:1px solid #008000;"></h5> -->
+                                </t>
+                            </t>
+                        </div>
+                        <t t-foreach="docs.order_line" t-as="l">
+                            <t t-if="l.product_id and l.product_id.tag == 'emp'">
+                                <div class="row" style="margin-right:30px; border-bottom:1px solid #008000; margin-top:3px;"></div>
+                            </t>
+                        </t>
+                        <div class="row" style="margin-right:30px;">
+                            <t t-foreach="docs.order_line" t-as="l">
+                            <div class="box" style="margin-bottom:-10px;">
+                                <t t-if="l.product_id and l.product_id.tag == 'emp'">
+                                    <p class="lead" style="padding:5px; line-height: 1.6;"><span t-field="l.product_id.description_for_offer"/></p>
+                                </t>
+                            </div> 
+                            </t>
+                        </div>
+                        <!--Pyroll Discription Section-->
+                          <div class="row" style="margin-right:30px;">
+                            <t t-foreach="docs.order_line" t-as="l">
+                                <t t-if="l.product_id and l.product_id.tag == 'py'">
+                                    <h5 style="color:#008000; white-space: nowrap;">4.3 <span t-field="l.product_id.name"/></h5>
+                                </t>
+                            </t>
+                        </div>
+                        <t t-foreach="docs.order_line" t-as="l">
+                            <t t-if="l.product_id and l.product_id.tag == 'py'">
+                                <div class="row" style="margin-right:30px; border-bottom:1px solid #008000; margin-top:3px;"></div>
+                            </t>
+                        </t>
+                        <div class="row" style="margin-right:30px;">
+                            <t t-foreach="docs.order_line" t-as="l">
+                            <div class="box" style="margin-bottom:10px;">
+                                <t t-if="l.product_id and l.product_id.tag == 'py'">
+                                    <p class="lead" style="padding:5px; line-height: 1.6;"><span t-field="l.product_id.description_for_offer"/></p>
+                                </t>
+                            </div> 
+                            </t>
+                        </div>
+                        <!--invoice Discription Section-->
+                        <div class="row" style="margin-top:5px; margin-right:30px;">
+                            <t t-foreach="docs.order_line" t-as="l">
+                                <t t-if="l.product_id and l.product_id.tag == 'inv'">
+                                    <h5 style="color:#008000; white-space: nowrap;">4.4 <span t-field="l.product_id.name"/></h5>
+                                </t>
+                            </t>
+                        </div>
+                        <t t-foreach="docs.order_line" t-as="l">
+                            <t t-if="l.product_id and l.product_id.tag == 'inv'">
+                                <div class="row" style="margin-right:30px; border-bottom:1px solid #008000; margin-top:3px;"></div>
+                            </t>
+                        </t>
+                        <div class="row" style="margin-right:30px;">
+                            <t t-foreach="docs.order_line" t-as="l">
+                            <div class="box">
+                                <t t-if="l.product_id and l.product_id.tag == 'inv'">
+                                    <p class="lead" style="padding:5px; line-height: 1.6;"><span t-field="l.product_id.description_for_offer"/></p>
+                                </t>
+                            </div> 
+                            </t>
+                        </div>
+                        <!--sales Discription Section-->
+                        <div class="row" style="margin-top:120px; margin-right:30px;">
+                            <t t-foreach="docs.order_line" t-as="l">
+                                <t t-if="l.product_id and l.product_id.tag == 'sales'">
+                                    <h5 style="color:#008000; white-space: nowrap;">4.5 <span t-field="l.product_id.name"/></h5>
+                                </t>
+                            </t>
+                        </div>
+                        <t t-foreach="docs.order_line" t-as="l">
+                            <t t-if="l.product_id and l.product_id.tag == 'sales'">
+                                <div class="row" style="margin-right:30px; border-bottom:1px solid #008000; margin-top:3px;"></div>
+                            </t>
+                        </t>
+                        <div class="row" style="margin-right:30px;">
+                            <t t-foreach="docs.order_line" t-as="l">
+                            <div class="box">
+                                <t t-if="l.product_id and l.product_id.tag == 'sales'">
+                                    <p class="lead" style="padding:5px; line-height: 1.6;"><span t-field="l.product_id.description_for_offer"/></p>
+                                </t>
+                            </div> 
+                            </t>
+                        </div>
+                        <!--pur Discription Section-->
+                        <div class="row" style="margin-top:20px; margin-right:30px;">
+                            <t t-foreach="docs.order_line" t-as="l">
+                                <t t-if="l.product_id and l.product_id.tag == 'pur'">
+                                    <h5 style="color:#008000; white-space: nowrap;">4.6 <span t-field="l.product_id.name"/></h5>
+                                </t>
+                            </t>
+                        </div>
+                        <t t-foreach="docs.order_line" t-as="l">
+                            <t t-if="l.product_id and l.product_id.tag == 'pur'">
+                                <div class="row" style="margin-right:30px; border-bottom:1px solid #008000; margin-top:3px;"></div>
+                            </t>
+                        </t>
+                        <div class="row" style="margin-right:30px;">
+                            <t t-foreach="docs.order_line" t-as="l">
+                            <div class="box">
+                                <t t-if="l.product_id and l.product_id.tag == 'pur'">
+                                    <p class="lead" style="padding:5px; line-height: 1.6;"><span t-field="l.product_id.description_for_offer"/></p>
+                                </t>
+                            </div> 
+                            </t>
+                        </div>
+                        <!--invenetory Discription Section-->
+                        <div class="row" style="margin-top:10px; margin-right:30px;">
+                            <t t-foreach="docs.order_line" t-as="l">
+                                <t t-if="l.product_id and l.product_id.tag == 'inven'">
+                                    <h5 style="color:#008000; white-space: nowrap;">4.6 <span t-field="l.product_id.name"/></h5>
+                                </t>
+                            </t>
+                        </div>
+                        <t t-foreach="docs.order_line" t-as="l">
+                            <t t-if="l.product_id and l.product_id.tag == 'inven'">
+                                <div class="row" style="margin-right:30px; border-bottom:1px solid #008000; margin-top:3px;"></div>
+                            </t>
+                        </t>
+                        <div class="row" style="margin-right:30px;">
+                            <t t-foreach="docs.order_line" t-as="l">
+                            <div class="box">
+                                <t t-if="l.product_id and l.product_id.tag == 'inven'">
+                                    <p class="lead" style="padding:5px; line-height: 1.6;"><span t-field="l.product_id.description_for_offer"/></p>
+                                </t>
+                            </div> 
+                            </t>
+                        </div>
+                    <!--End fifth page-->
+                        <div class="row" style="margin-top:40px;">
+                            <h3 style="color:#008000">5  العرض التجاري</h3>
+                        </div>
+                        <div class="row" style="border-bottom:2px solid #000;">
+                        </div>
+                            <h6 style="margin-right:50px; margin-bottom:10px; margin-top:-3px;">ادناه جداول الاسعار بالدولار الامريكي</h6>
+                        <div class="row" style="magin-top:15px;">
+                            <h5 style="color:#008000; margin-right:30px;">5.1 جدول الاسعار الاساسي</h5>
+                        </div>
+                        <div class="row" style="margin-right:30px; border-bottom:1px solid #008000;">
+                        </div>
+                        <div class="row" style="margin-top:20px;">
+                            <table class="table table-bordered">
+                                <thead style="background-color:gray; color:#fff;">
+                                    <tr>
+                                        <th>#</th>
+                                        <th>اسم المادة</th>
+                                        <th>العدد</th>
+                                        <th>السعر</th>
+                                        <th>المجموع</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-set="i" t-value="1"/>
+                                    <tr t-foreach="docs.order_line" t-as="l">
+                                        <t t-if="l.product_id">
+                                        <td><span t-esc="i"/></td>
+                                        <td><span t-field="l.product_id.name"/></td>
+                                        <td><span t-field="l.product_uom_qty"/></td>
+                                        <td><span t-field="l.price_unit"/></td>
+                                        <td><span t-field="l.price_subtotal"/></td>
+                                        <t t-set="i" t-value="i+1"/>
+                                        </t>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="row" style="margin-top:-15px;">
+                            <table class="table table-bordered">
+                                <thead style="background-color:gray; color:#fff;">
+                                <tr>
+                                    <th>المجموع فقط<span t-field="docs.amount_to_text" style="margin-right:5px;"/></th> 
+                                    <th><span t-field="docs.amount_total"/></th>
+                                </tr>
+                                </thead>
+                            </table>
+                        </div>
+                </div>
+                </div>
+            </t>
+        </t>
+    </template>
+
+</data>
+</odoo> 

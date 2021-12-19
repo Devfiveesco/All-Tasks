@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="res_partner_contact_form_inherit_id" model="ir.ui.view">
+            <field name="name">res partner</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//form/div[@class='alert alert-warning oe_edit_only']" position="before">
+                    <header>
+                        <button name="action_waiting"
+                                string="Waiting"
+                                class="oe_highlight"
+                                icon="fa-clock-o"
+                                reg_status="draft" type="object"
+                                attrs="{'invisible':[('reg_status','!=','draft')]}"/>
+
+                        <button name="action_approve"
+                                string="Approve"
+                                icon="fa-check-circle"
+                                class="oe_highlight"
+                                reg_status="waiting" type="object"
+                                attrs="{'invisible':[('reg_status','!=','waiting')]}"/>
+
+                        <button name="action_reject"
+                                string="Rejected"
+                                icon="fa-minus-circle"
+                                class="oe_highlight"
+                                reg_status="waiting" type="object"
+                                attrs="{'invisible':[('reg_status','!=','waiting')]}"/>
+
+                        <button name="action_set_to_draft"
+                                string="Set to Draft"
+                                reg_status="waiting" type="object"
+                                attrs="{'invisible':[('reg_status','!=','waiting')]}"/>
+                        <field name="reg_status" widget="statusbar" statusbar_visible="draft,waiting,approve,reject"/>
+                    </header>
+                </xpath>
+                <xpath expr="//sheet/div[@class='oe_button_box']" position="before">
+                    <widget name="web_ribbon" text="Approved" attrs="{'invisible':[('reg_status','!=','approve')]}"/>
+                    <widget name="web_ribbon" text="Reject" bg_color="bg-danger" attrs="{'invisible':[('reg_status','!=','reject')]}"/>
+                </xpath>
+            </field>
+        </record>
+        <record id="res_partner_contact_tree_inherit_id" model="ir.ui.view">
+            <field name="name">res.partner</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='user_id']" position="after">
+                    <field name="reg_status"
+                    decoration-info="reg_status == 'draft'"
+                    decoration-danger="reg_status == 'reject'"
+                    decoration-primary="reg_status == 'waiting'"
+                    decoration-success="reg_status == 'approve'" widget="badge" optional="show"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="res_partner_contact_search_inherit_id" model="ir.ui.view">
+            <field name="name">res.partner.search</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_res_partner_filter"/>
+            <field name="arch" type="xml">
+                <xpath expr="//search" position="inside">
+                    <field name="reg_status" filter_domain="[('reg_status','ilike', self)]"/>
+                     <filter string="Approved" name="approve" domain="[('reg_status','=', 'approve')]"/>
+                     <filter string="Rejected" name="reject" domain="[('reg_status','=', 'reject')]"/>
+                     <filter string="Under Checking" name="waiting" domain="[('reg_status','=', 'waiting')]"/>
+                    <filter name="group_reg_status" string="Registration Status" context="{'group_by': 'reg_status'}"/>
+                </xpath>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

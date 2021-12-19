@@ -1,0 +1,64 @@
+<?xml version="1.0" ?>
+<odoo>
+
+    <record id="income_reg_form_view" model="ir.ui.view">
+        <field name="name">income.reg.form.view</field>
+        <field name="model">income.reg</field>
+        <field name="priority">1</field>
+        <field name="arch" type="xml">
+            <form string="Manual Income Registration">
+                <header>
+                    <button name='post' type='object' string='Post' class="oe_highlight" states='draft'/>
+                    <field name='state' widget='statusbar' states='draft,posted'/>
+                </header>
+                <sheet>
+                
+                <div class="oe_title">
+                   <h1>
+                    <field name='branch_id' placeholder="Branch Name" attrs="{'readonly' : [('state','!=','draft')]}" />
+                   </h1>
+                </div>
+                    <group colspan="4" col="4">
+                        <field name='date'  attrs="{'readonly' : [('state','!=','draft')]}"/>
+                        <field  name='total_net_income' attrs="{'readonly' : [('state','!=','draft')]}"/>
+                        <field name='total_in_usd' attrs="{'readonly' : [('state','!=','draft')]}"/>
+                        <field  name='total_expense' attrs="{'readonly' : [('state','!=','draft')]}"/>
+                    </group>
+                    <field name='delivery_companies_ids' attrs="{'readonly' : [('state','!=','draft')]}" >
+                            <tree editable='top'> 
+                                <field name='partner_id' />
+                                <field name='no_of_orders'/>
+                                <field name='total_amount'/>
+                            </tree>
+                        </field>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="income_reg_tree_view" model="ir.ui.view">
+        <field name="name">income.reg.tree.view</field>
+        <field name="model">income.reg</field>
+        <field name="priority">1</field>
+        <field name="arch" type="xml">
+            <tree string="Manual Income Registration">
+                    <field name='id' />
+                    <field name='create_date' widget="date" options="{'format': 'dd/MM/yyyy'}"/>                
+                    <field name='branch_id' />
+                    <field  name='total_net_income'/>
+                    <field  name='total_expense'/>
+                    
+            </tree>
+        </field>
+    </record>
+
+    <record id="income_reg_action" model="ir.actions.act_window">
+        <field name="name">Manual Income Registration</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">income.reg</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="income_reg_menu" action="income_reg_action" parent ="account.menu_finance_entries_accounting_miscellaneous" />
+
+</odoo>

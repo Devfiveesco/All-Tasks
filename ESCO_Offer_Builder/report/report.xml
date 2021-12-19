@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+         <report
+            id="action_report_quotation_offers"
+            string="Quotation Offer"
+            model="sale.order"
+            report_type="qweb-pdf"
+            file="ESCO_Offer_Builder.quotatuion_offer_report"
+            name="ESCO_Offer_Builder.quotatuion_offer_report"
+            />  
+
+    </data>
+</odoo>
+
